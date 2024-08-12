@@ -1,0 +1,5 @@
+2024-08-08 16:54:59,567 - INFO - Loading documents from: /home/sat/RAG/llamaindex/data
+2024-08-08 16:55:18,879 - INFO - Loaded 801 documents.
+2024-08-08 16:55:18,879 - INFO - Starting preprocessing on 801 documents with batch size: 100
+2024-08-08 16:55:19,132 - INFO - Load pretrained SentenceTransformer: ./RAG/llamaindex/model/all-mpnet-base-v2
+2024-08-08 16:56:20,034 - INFO - Loading documents from: ./llamaindex/data
