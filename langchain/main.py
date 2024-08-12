@@ -12,6 +12,7 @@ def main(question):
     result  = chains.invoke(question)
     return result
 
-questions = "jelasakan tentang pasal 31 pada UUD"
+questions = input("masukkan pertanyaan: ")
 res = main (questions)
-print (res)
+payload = {"question": questions, "answer": res}
+print (payload)
