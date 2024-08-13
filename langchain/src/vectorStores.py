@@ -32,6 +32,27 @@ def load_vectorstore(persist_directory):
     logging.info('Vector store loaded successfully.')
     return vectorstore
 
+
+from src.dataLoading import load_data, split_data
+from src.vectorStores import load_vectorstore, update_vectorstore
+import os
+
+def add_data_to_vectorstore(new_data_path, persist_directory):
+    if not os.path.exists(persist_directory):
+        raise FileNotFoundError(f"Vectorstore not found at {persist_directory}. Please create a vectorstore first.")
+
+    # Load the existing vectorstore
+    vectorstore = load_vectorstore(persist_directory)
+
+    # Load and process the new data
+    new_documents = load_data(new_data_path)
+    processed_new_docs = split_data(new_documents)
+
+    # Update the vectorstore with the new data
+    updated_vectorstore = update_vectorstore(vectorstore, processed_new_docs, persist_directory)
+
+    return updated_vectorstore
+
 # persisitt_directory = "/home/sat/RAG/chroma"
 # docs = load_data("/home/sat/RAG/data/UUD45 ASLI.pdf")
 # docs   = split_data(docs)
